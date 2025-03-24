@@ -1,0 +1,70 @@
+.post {
+    position: absolute;
+    height: 100dvh;
+    width: 100dvw;
+    background-color: #686767b7;
+    justify-content: center;
+}
+.contendor-post {
+    margin: auto 0px auto 0px;
+    height: 60dvh;
+    display: flex;
+    flex-direction: column;
+    border: 1px white outset;
+    padding: 5%;
+    background-color: #afafaf;
+}
+.nueva-nota-cabecera {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.nuevaNota {
+    height: 40dvh;
+    width: 60dvw;
+    resize: none;
+    overflow-y: auto;
+    margin-bottom: 25px;
+}
+.cerrar{
+    width: fit-content;
+    margin: auto auto auto 0px;
+}
+.addNota {
+    width: fit-content;
+    margin: auto 0px auto auto;
+}
+header {
+    height: 10dvh !important;
+    max-height: 10dvh !important;
+    width: 100dvw;
+    max-width: 100dvw;
+}
+nav {
+    height: 100%;
+}
+main {
+    max-height: 80dvh !important;
+    height: 100dvh;
+    width: 80dvw;
+    max-width: 80dvw;
+    margin: 0px auto 0px auto;
+    overflow-y: auto;
+    border-left: #afafaf 1px solid;
+    border-right: #afafaf 1px solid;
+}
+footer {
+    height: 10dvh !important;
+    max-height: 10dvh !important;
+    width: 100dvw;
+    max-width: 100dvw;
+    display: flex;
+}
+.btn-nueva-nota {
+    width: fit-content;
+    height: fit-content;
+    margin: auto 0px auto auto;
+    margin-right: 10px;
+}
+.letras-hover-a-gris:hover {
+    color:#afafaf !important;
+}

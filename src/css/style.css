@@ -119,3 +119,11 @@ footer {
 .letras-hover-a-gris:hover {
     color:#afafaf !important;
 }
+@media only screen and (max-width: 600px) {
+    .feed{
+        width: 100dvw;
+    }
+    .separador {
+        margin-bottom: 26px;
+    }
+  }

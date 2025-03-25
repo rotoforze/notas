@@ -44,7 +44,7 @@ export function mandarAlFeed() {
     aniadirALocalStorage(nuevoContenedorNota.outerHTML);
     localStorage.clickCount++;
 
-    feed.innerHTML += nuevoContenedorNota;
+    feed.innerHTML = nuevoContenedorNota.outerHTML + feed.innerHTML;
     nota.value = "";
 
 }

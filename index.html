@@ -11,7 +11,7 @@
 </head>
 <body class="bg-secondary">
     <!-- Publicador, estático, en el centro de la pantalla, aparece solo cuando se pulsa la tecla de añadir nota -->
-    <div class="post" style="display: flex;">
+    <div class="post" style="display: none;">
         <div class="contendor-post">
             <button class="cerrar btn btn-secondary">X</button>
             <h1 class="nueva-nota-cabecera">Añadir nota</h1>
@@ -27,13 +27,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a href="https://github.com/rotoforze" target="_blank" class="nav-link active text-uppercase fw-semibold letras-hover-a-gris">Github</a>
+                            <a href="https://github.com/rotoforze" target="_blank" class="nav-link active text-uppercase fw-semibold letras-hover-a-gris">Github <i class="bi bi-github"></i></a>
                         </li>
                     </ul>
                 </div>
                 <!-- TODO -->
                 <div class="d-flex dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Idioma 🌍</button>
+                    <button class="btn btn-secondary dropdown-toggle dropdown-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">Idioma 🌍</button>
                     <ul class="dropdown-menu">
                         <li><a href="#" class="dropdown-item">Español 🇪🇸</a></li>
                         <li><a href="#" class="dropdown-item">English 🇬🇧</a></li>
@@ -44,8 +44,9 @@
     </header>
     <!-- feed de la página -->
     <main class="bg-secondary">
-        
+        <div class="feed">
 
+        </div>
     </main>
 
     <!-- footer -->

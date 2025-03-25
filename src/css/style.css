@@ -10,9 +10,10 @@
     height: 60dvh;
     display: flex;
     flex-direction: column;
-    border: 1px white outset;
+    border: 3px white outset;
+    border-radius: 10px;
     padding: 5%;
-    background-color: #afafaf;
+    background-color: #d7d6d6;
 }
 .nueva-nota-cabecera {
     text-align: center;
@@ -24,6 +25,7 @@
     resize: none;
     overflow-y: auto;
     margin-bottom: 25px;
+    font-size: 2em;
 }
 .cerrar{
     width: fit-content;
@@ -33,11 +35,20 @@
     width: fit-content;
     margin: auto 0px auto auto;
 }
+html{
+    max-width: 90dvw;
+    max-height: 90dvh;
+    overflow: hidden;
+}
 header {
     height: 10dvh !important;
     max-height: 10dvh !important;
     width: 100dvw;
     max-width: 100dvw;
+}
+.dropdown-item, .dropdown-menu {
+    width:fit-content !important;
+    max-width: max-content !important;
 }
 nav {
     height: 100%;
@@ -45,12 +56,52 @@ nav {
 main {
     max-height: 80dvh !important;
     height: 100dvh;
-    width: 80dvw;
-    max-width: 80dvw;
-    margin: 0px auto 0px auto;
+    width: 100dvw;
+    max-width: 100dvw;
     overflow-y: auto;
+}
+.feed {
+    width: 80%;
+    height: fit-content;
+    min-height: 100%;
+    margin: 0px auto 0px auto;
     border-left: #afafaf 1px solid;
     border-right: #afafaf 1px solid;
+    padding-top: 25px;
+    
+}
+.contenedor-nota{
+    height: fit-content;
+    width: 95%;
+    margin: 0px auto 0px auto;
+    margin-bottom: 10px;
+    border: 3px white outset;
+    border-radius: 10px;
+    background-color: #d7d6d6;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+}
+.nota {
+    text-align: justify;
+    margin: 5px;
+}
+.separador{
+    width: 80%;
+    height: 25%;
+    margin: 0px auto 0px auto;
+    background-color: #000;
+    height: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.datos {
+    width: 80%;
+    margin: 0px auto 0px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 2%;
 }
 footer {
     height: 10dvh !important;

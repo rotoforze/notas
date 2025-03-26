@@ -103,6 +103,16 @@ main {
     justify-content: space-between;
     padding-top: 2%;
 }
+.sinNotas {
+    margin: 0px auto 0px auto;
+    width: 40% !important;
+    height: fit-content;
+}
+.textoLibretaVacia {
+    margin: 0px auto 0px auto;
+    color: #d7d6d6;
+    text-shadow: #afafaf 1px 1px 1px;
+}
 footer {
     height: 10dvh !important;
     max-height: 10dvh !important;
@@ -126,4 +136,4 @@ footer {
     .separador {
         margin-bottom: 26px;
     }
-  }
+}

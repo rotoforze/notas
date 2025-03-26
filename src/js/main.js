@@ -12,7 +12,7 @@ function cerrarMenu() {
     post.setAttribute("style", "display: none;");
 }
 
-import { mandarAlFeed, pintarTodo } from "./gestorNotas.js";
+import { mandarAlFeed, pintarTodo, borrar } from "./gestorNotas.js";
 
 function enviarNota() {
     mandarAlFeed();

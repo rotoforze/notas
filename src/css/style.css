@@ -107,6 +107,7 @@ main {
     margin: 0px auto 0px auto;
     width: 40% !important;
     height: fit-content;
+    text-align: center;
 }
 .textoLibretaVacia {
     margin: 0px auto 0px auto;

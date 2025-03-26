@@ -15,29 +15,58 @@ function getId(item) {
     return null;
 }
 
-export function borrar(flag) {
-    console.log(this)
-    const id = getId(this);
-    if (id <= localStorage.clickCount) {
-        localStorage.removeItem("nota"+id)
+function avisoSinNotas(boolean) {
+    if (boolean) {
+        sinNotas.setAttribute("style", "display: flex;");
+    }else if(!boolean) {
+        sinNotas.setAttribute("style", "display: none;");
+    }
+}
+
+function borrarFeed() {
+    while (feed.childElementCount > 0) {
+        feed.firstChild.remove();
+    }
+}
+
+export function borrar() {
+    const id = Number(getId(this));
+    if (id <= Number(localStorage.clickCount)) {
+        localStorage.removeItem("nota"+id);
         console.log("se borró");
         document.querySelector(".nota"+id).remove();
     }else {
-        console.log("no se encontró la nota")
+        console.log("no se encontró la nota");
     }
+
+    if (feed.firstElementChild.outerHTML === sinNotas.outerHTML || feed.childElementCount === 1) {
+        console.log("in")
+        avisoSinNotas(true);
+    }
+    
+}
+
+export function ponerEventoAlBoton(id) {
+    // console.log(id);
+    // console.log(typeof id);
+    id = Number(id);
+    const boton = document.querySelector(".btn"+id);
+    // console.log(boton);
+    boton.addEventListener("click", borrar, true);
 }
 
 export function mandarAlFeed() {
     const texto = nota.value;
-    
     if (texto == "") {
         // no pintamos una nota vacía
         return null;
     }
     if (localStorage.clickCount == undefined){
         localStorage.clickCount = 0;
-        sinNotas.setAttribute("style", "display: none;");
     } 
+    if (feed.firstElementChild.outerHTML === sinNotas.outerHTML) {
+        avisoSinNotas(false);
+    }
 
     // creamos el elemento que será la caja que contenga la nota.
     const nuevoContenedorNota = document.createElement("div");
@@ -85,74 +114,57 @@ export function mandarAlFeed() {
 
     const btnBorrar = document.createElement("button");
     btnBorrar.setAttribute("class", "borrarItem btn btn-danger "+"btn"+localStorage.clickCount);
-
+    // console.log(btnBorrar.addEventListener("click", borrar, false));
+    
+    
     const icono = document.createElement("i");
     icono.setAttribute("class", "bi bi-trash-fill");
     btnBorrar.appendChild(icono);
     contenedorBtnBorrar.appendChild(btnBorrar);
     nuevoContenedorNota.appendChild(contenedorBtnBorrar);
     
-    
-    const btnBorrarDos = document.querySelector("#btn"+localStorage.clickCount);
-    const btnBorrarUno = document.querySelector(".btn"+localStorage.clickCount);
-    console.log(btnBorrarDos+" @ "+btnBorrarUno)
-    btnBorrar.addEventListener("click", borrar, true)
-    
     // aumentamos el id de la nota y añadimos la nota
     // console.log(nuevoContenedorNota)
     aniadirALocalStorage(nuevoContenedorNota.outerHTML);
-    
-    
-    feed.innerHTML = nuevoContenedorNota.outerHTML + feed.innerHTML;
+
     nota.value = "";
 }
 
 function aniadirALocalStorage(nota) {
     localStorage.setItem("nota"+localStorage.clickCount, nota);
     localStorage.clickCount++;
+    borrarFeed();
+    pintarTodo();
 }
 
-export function pintarTodo() {
+function ponerBotones() {
     let flag = localStorage.clickCount;
-    flag++;
+    // flag++;
     if (localStorage.length > 1) {
-        
-        sinNotas.setAttribute("style", "display: none;");
         while (flag >= 0) {
             if (localStorage.getItem("nota"+flag)){
-                console.log(flag);
-                // console.log(localStorage.clickCount);
-                // console.log(localStorage.getItem("nota"+flag));
-                // feed.innerHTML += localStorage.getItem("nota"+flag);
-                // let newBtnBorrar = document.querySelector(".btn"+flag);
-                // console.log(newBtnBorrar);
-                // newBtnBorrar.addEventListener("click", () => { borrar(flag) }, true);
-
-                feed.innerHTML += localStorage.getItem("nota"+flag);
-                let newBtnBorrar = document.querySelector(".btn"+flag);
-                newBtnBorrar.addEventListener("click", borrar, true)
+                ponerEventoAlBoton(flag);
             }
             flag--;
     
         }
     }
-
-    // no hay notas o se terminó
-    return false; 
 }
 
-function comprobarNota(nota) {
-
-    let flag = 0;
-    while (flag <= localStorage.clickCount) {
-
-        if (localStorage.key("nota"+flag)){
-            return true;
-        }
-
-    }
+export function pintarTodo() {
+    let flag = localStorage.clickCount;
+    flag++;
+    if (localStorage.length > 2) {
+        avisoSinNotas(false);
+        while (flag >= 0) {
+            if (localStorage.getItem("nota"+flag)){
+                feed.innerHTML += localStorage.getItem("nota"+flag);
+            }
+            flag--;
     
-    // no se encontró nada
-    return false;
-
+        }
+    }
+    ponerBotones();
+    // no hay notas o se terminó
+    return false; 
 }
